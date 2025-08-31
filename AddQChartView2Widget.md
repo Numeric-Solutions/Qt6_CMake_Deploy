@@ -1,0 +1,3 @@
+# Add QChartView to Qt Designer
+
+To add a QChartView to a widget in Qt Designer, you can use the "Promote to..." feature. First, ensure your project's .pro file includes `QT += charts` to link the QtCharts module  Then, add a `QGraphicsView` (or a `QWidget`) to your form in Qt Designer. Right-click on the added widget and select "Promote to...". In the dialog, set the "Promoted class name" to `QChartView`, the "Header file" to `QtCharts/QChartView`, and ensure the "Global include" option is checked  Click "Add" and then "Promote" to finalize the change. This allows you to use `QChartView` directly within the designer interface  After promotion, you can access the widget in your code via the generated UI header file, for example, `ui->chartView->setChart(chart);` 
