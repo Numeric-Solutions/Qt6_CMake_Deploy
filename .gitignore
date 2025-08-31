@@ -1,0 +1,86 @@
+# Linux Mint Qt6/C++ .gitignore
+
+# Any directory starting with "build" (at any depth)
+build*/
+
+# Common Qt Creator out-of-source build directories
+cmake-build-*/
+
+# we should probably igor this until I can move it somewhere
+linuxdeployqt-continuous-x86_64.AppImage
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+
+# Ninja build system files
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Qt Creator project/user files
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+CMakeLists.txt.user
+*.creator
+*.creator.user
+*.creator.user.*
+.qtc_clangd/
+
+# qmake/Qt stash
+.qmake.stash
+
+# Qt auto-generated files (moc/uic/rcc)
+moc_*.cpp
+moc_*.h
+moc_*.json
+moc_predefs.h
+ui_*.h
+qrc_*.cpp
+
+# C/C++ build artifacts
+*.o
+*.lo
+*.la
+*.a
+*.so
+*.so.*
+*.slo
+*.obj
+*.gch
+*.pch
+
+# Debugging and profiling
+core
+core.*
+vgcore.*
+*.gcno
+*.gcda
+*.gcov
+*.prof
+*.profraw
+*.profdata
+
+# Logs and caches
+*.log
+*.cache
+
+# Editor/OS files
+*~
+*.swp
+*.swo
+*.swm
+*.tmp
+*.bak
+*.orig
+*.rej
+.directory
+.DS_Store
+Thumbs.db
