@@ -1,72 +1,15 @@
-This is an example of how to build a project in `Qt6/C++`, using all the 
-modern featuers, `QGraphics`, `QWidgets` and `QCharts` (but not `QML`).  This 
-example also uses the recommended build system:  `CMake`/`Ninja` and deploys the 
-project using the modern `Qt6`/`CMake` method, which is then used to create an `AppImage` 
-using `LinuxDeploy`.
-
-# How to Build Project
-
-### Clean Build in /bin for Testing
-```zsh
-rm -rf build && cmake -G Ninja -S ./ -B ./build && cmake --build build --parallel
-```
-or define:
-```zsh
-alias nbuild='rm -rf bin && cmake -G Ninja -S ./ -B ./bin && cmake --build bin --parallel'
-```
-
-### Build FOR DEPLOYMENT:
-
-0. **Delete /build-release, if it exists:**
-```zsh
-rm -rf build-release
-```
-
-1. **Configure with Ninja**
-```zsh
-cmake -G Ninja -S . -B build-release -DCMAKE_BUILD_TYPE=Release
-```
-
-2. **Build with Ninja**
-```zsh
-cmake --build build-release
-```
-
-3. **Install**/Deploy
-```zsh
-cmake --install build-release --prefix ~/Qt6_CMake_Deploy_Package
-```
-
-# Find all Dependencies
-```zsh
-cd ~/Qt6_CMake_Deploy_Package/bin
-ldd ./Qt6_CMake_Deploy > dependencies.txt
-```
-This does not include run-time dependencies.
-For a more complete analysis, including run-time deps, see `Julia_Dependency_Tools`
-```zsh
-git@github.com:Numeric-Solutions/Julia_Dependency_Tools.git
-```
-
-
 # Using LinuxDeploy to make an AppImage
-so far, this is the only method that has worked completely for this example
 
-
-### Set UP Environment:
+## Set UP Environment:
 
 1. **Ensure Qt is in PATH:**
-   ```zsh
-   export PATH=/home/nathan/Qt/6.9.2/gcc_64/bin:$PATH
-   ```
+`export PATH=/home/nathan/Qt/6.9.2/gcc_64/bin:$PATH`
 
-2. **Export QMAKE:**
-   ```zsh
-   export QMAKE=/home/nathan/Qt/6.9.2/gcc_64/bin/qmake
-   ```
+2. **Export QMAKE:** 
+`export QMAKE=/home/nathan/Qt/6.9.2/gcc_64/bin/qmake`
 
-3. **Download LinuxDeploy**:
-   ```zsh
+1. **Download LinuxDeploy**:
+   ```
    prev="$PWD"
    mkdir -p ~/DeploymentTools/linuxdeploy/
    cd ~/DeploymentTools/linuxdeploy/
@@ -77,7 +20,7 @@ so far, this is the only method that has worked completely for this example
    cd "$prev"
    ```
 
-### Build Project
+## Build Project
 ```zsh
 rm -rf build-release
 cmake -G Ninja -S . -B build-release -DCMAKE_BUILD_TYPE=Release
@@ -85,7 +28,7 @@ cmake --build build-release
 cmake --install build-release --prefix ~/Qt6_CMake_Deploy_Package
 ```
 
-### Create AppDir structure
+## Create AppDir structure
 ```zsh
 rm -rf ~/Qt6_Deploy_Complete
 mkdir -p ~/Qt6_Deploy_Complete/usr/bin
@@ -94,7 +37,7 @@ mkdir -p ~/Qt6_Deploy_Complete/usr/share/applications
 mkdir -p ~/Qt6_Deploy_Complete/usr/share/icons/hicolor/256x256/apps/
 ```
 
-### Copy your executable, qss file, /lib/, /plugins/, and icon
+## Copy your executable, qss file, /lib/, /plugins/, and icon
 ```zsh
 cp ~/Qt6_CMake_Deploy_Package/bin/Qt6_CMake_Deploy ~/Qt6_Deploy_Complete/usr/bin/
 cp ~/Qt6_CMake_Deploy_Package/bin/QTdark_PlotWin.qss ~/Qt6_Deploy_Complete/usr/bin/
@@ -103,7 +46,7 @@ cp -r ~/Qt6_CMake_Deploy_Package/plugins ~/Qt6_Deploy_Complete/usr/lib/
 cp ./ns256.png ~/Qt6_Deploy_Complete/usr/share/icons/hicolor/256x256/apps/Qt6_CMake_Deploy.png
 ```
 
-### Create a desktop file
+## Create a desktop file
 ```zsh
 cat > ~/Qt6_Deploy_Complete/usr/share/applications/Qt6_CMake_Deploy.desktop << EOF
 [Desktop Entry]
@@ -116,7 +59,7 @@ Comment=Qt6 CMake Deploy Application
 EOF
 ```
 
-### create a symlink of the .desktop and icon files in the AppDir's top level
+## create a symlink of the .desktop and icon files in the AppDir's top level
 ```zsh
 cd ~/Qt6_Deploy_Complete/
 ln -s usr/share/applications/Qt6_CMake_Deploy.desktop ~/Qt6_Deploy_Complete/Qt6_CMake_Deploy.desktop
@@ -125,7 +68,7 @@ ln -s usr/share/icons/hicolor/256x256/apps/Qt6_CMake_Deploy.png ~/Qt6_Deploy_Com
 cd ~/Documents/Qt/Qt6_CMake_Deploy/
 ```
 
-### Run LinuxDeploy
+## Run LinuxDeploy
 cd into `path/to/linuxdeploy/` and run `linuxdeploy`
 ```zsh
 cd ~/DeploymentTools/linuxdeploy/
@@ -134,7 +77,8 @@ mv Qt6_CMake_Deploy-x86_64.AppImage ~/
 cd ~/Documents/Qt/Qt6_CMake_Deploy
 ```
 
-### Copy AppImage to target computer
+## Copy AppImage to target computer
 ```zsh
 scp -r ~/Qt6_CMake_Deploy-x86_64.AppImage reflexion@192.168.1.200:/home/reflexion/
 ```
+
