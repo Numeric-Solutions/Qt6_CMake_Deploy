@@ -14,7 +14,7 @@ qt_standard_project_setup()  # Standard Qt CMake behaviors (e.g., for deployment
 qt_add_executable(Qt6_CMake_Deploy
     main.cpp
     plotwindow.cpp
-    ringbuffer.cpp  # Added this to include RingBuffer implementations
+    ringbuffer.cpp
 )
 
 target_link_libraries(Qt6_CMake_Deploy PRIVATE
@@ -33,8 +33,12 @@ qt_generate_deploy_app_script(
     TARGET Qt6_CMake_Deploy
     OUTPUT_SCRIPT deploy_script
     NO_UNSUPPORTED_PLATFORM_ERROR
+    NO_TRANSLATIONS                 # Add this to skip translation deployment
 )
 install(SCRIPT ${deploy_script})
 
 # Install the stylesheet to the bin dir (adjust filename if needed)
 install(FILES QTdark_PlotWin.qss DESTINATION bin)
+
+# copy qss file to build dir
+configure_file(${CMAKE_SOURCE_DIR}/QTdark_PlotWin.qss ${CMAKE_BINARY_DIR}/QTdark_PlotWin.qss COPYONLY)

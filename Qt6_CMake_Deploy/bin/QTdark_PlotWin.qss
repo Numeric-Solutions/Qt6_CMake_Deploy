@@ -1,0 +1,291 @@
+/*
+	COLOR_DARK     = #191919
+	COLOR_MEDIUM   = #353535
+	COLOR_MEDLIGHT = #5A5A5A
+	COLOR_LIGHT    = #DDDDDD
+	COLOR_ACCENT   = #3D7848
+*/
+
+* {
+	background: #191919;
+	color: #DDDDDD;
+	border: 1px solid #404040;  /* Lighter border for better definition */
+	font-family: "Segoe UI", Arial;  /* Global font for consistency */
+	font-size: 12px;
+}
+
+QWidget::item:selected {
+	background: #3D7848;
+}
+
+QCheckBox, QRadioButton {
+	border: none;
+}
+
+QRadioButton::indicator, QCheckBox::indicator {
+	width: 13px;
+	height: 13px;
+}
+
+QRadioButton::indicator::unchecked, QCheckBox::indicator::unchecked {
+	border: 1px solid #5A5A5A;
+	background: none;
+}
+
+QRadioButton::indicator:unchecked:hover, QCheckBox::indicator:unchecked:hover {
+	border: 1px solid #DDDDDD;
+}
+
+QRadioButton::indicator::checked, QCheckBox::indicator::checked {
+	border: 1px solid #5A5A5A;
+	background: #5A5A5A;
+}
+
+QRadioButton::indicator:checked:hover, QCheckBox::indicator:checked:hover {
+	border: 1px solid #DDDDDD;
+	background: #DDDDDD;
+}
+
+QGroupBox {
+	margin-top: 6px;
+}
+
+QGroupBox::title {
+	top: -7px;
+	left: 7px;
+}
+
+QScrollBar {
+	border: 1px solid #5A5A5A;
+	background: #191919;
+}
+
+QScrollBar:horizontal {
+	height: 20px;  /* Keep your original height; increase to 24px if you want a thicker bar for easier grabbing */
+	margin: 0px 16px 0px 16px;  /* Symmetric margins to center the groove and prevent edge asymmetry */
+	background: #191919;  /* Dark groove background */
+	border: 1px solid #353535;  /* Subtle outer border for the whole bar */
+}
+
+QScrollBar::handle:horizontal {
+	background: #403f3f;  /* Lighter grey for better visibility; try #808080 if you want even more contrast */
+	border: 1px solid #3b3b3b;  /* Stronger border to outline edges clearly; makes right edge visible */
+	min-width: 20px;  /* Minimum pixel width; keeps handle grabbable even with huge data buffers */
+	border-radius: 2px;  /* Slight rounding for a modern look */
+}
+
+QScrollBar::handle:horizontal:hover {
+	background: #707070;  /* Brighten on hover for feedback */
+	border: 1px solid #909090;  /* Lighter border on hover */
+}
+
+QScrollBar::handle:horizontal:pressed {
+	background: #404040;  /* Darken on press for "button-like" feel */
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+	background: #353535;  /* Arrow background */
+	border: 1px solid #5A5A5A;
+	width: 16px;  /* Fixed width to match margins */
+	subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal {
+	subcontrol-position: right;  /* Explicit right arrow position */
+}
+
+QScrollBar::sub-line:horizontal {
+	subcontrol-position: left;  /* Explicit left arrow position */
+}
+
+QScrollBar::left-arrow:horizontal, QScrollBar::right-arrow:horizontal {
+	width: 7px;  /* Larger arrows for visibility; was 3px, which is tiny */
+	height: 7px;
+	background: #DDDDDD;  /* Lighter arrow color for contrast */
+	border: none;  /* Remove border if you want cleaner arrows */
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+	background: #252525;  /* Slightly lighter groove than overall bg for subtle depth */
+}
+
+QAbstractButton:hover {
+	background: #353535;
+}
+
+QAbstractButton:pressed {
+	background: #5A5A5A;
+}
+
+QAbstractItemView {
+	show-decoration-selected: 1;
+	selection-background-color: #3D7848;
+	selection-color: #DDDDDD;
+	alternate-background-color: #353535;
+}
+
+QHeaderView {
+	border: 1px solid #5A5A5A;
+}
+
+QHeaderView::section {
+	background: #191919;
+	border: 1px solid #5A5A5A;
+	padding: 4px;
+}
+
+QHeaderView::section:selected, QHeaderView::section::checked {
+	background: #353535;
+}
+
+QTableView {
+	gridline-color: #5A5A5A;
+}
+
+QTabBar {
+	margin-left: 2px;
+}
+
+QTabBar::tab {
+	border-radius: 0px;
+	padding: 4px;
+	margin: 4px;
+}
+
+QTabBar::tab:selected {
+	background: #353535;
+}
+
+QComboBox {
+	background: #252525;
+	border: 1px solid #404040;
+	padding: 1px 18px 1px 3px;  /* Space for arrow */
+}
+
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 15px;
+	border-left: 1px solid #404040;
+}
+
+QComboBox::down-arrow {
+	width: 3px;
+	height: 3px;
+	border: 1px solid #5A5A5A;
+	background: #353535;
+}
+
+QComboBox QAbstractItemView {
+	background: #191919;
+	selection-background-color: #3D7848;
+}
+
+QAbstractSpinBox {
+	padding-right: 15px;
+	background: #252525;
+	border: 1px solid #404040;
+}
+
+QAbstractSpinBox::up-button, QAbstractSpinBox::down-button {
+	border: 1px solid #5A5A5A;
+	background: #353535;
+	subcontrol-origin: border;
+}
+
+QAbstractSpinBox::up-arrow, QAbstractSpinBox::down-arrow {
+	width: 3px;
+	height: 3px;
+	border: 1px solid #5A5A5A;
+}
+
+QSlider {
+	border: none;
+}
+
+QSlider::groove:horizontal {
+	height: 5px;
+	margin: 4px 0px 4px 0px;
+	background: #252525;  /* Subtle groove */
+}
+
+QSlider::groove:vertical {
+	width: 5px;
+	margin: 0px 4px 0px 4px;
+	background: #252525;
+}
+
+QSlider::handle {
+	border: 1px solid #5A5A5A;
+	background: #353535;
+	border-radius: 4px;  /* Rounded for better look */
+}
+
+QSlider::handle:horizontal {
+	width: 15px;
+	margin: -4px 0px -4px 0px;
+}
+
+QSlider::handle:vertical {
+	height: 15px;
+	margin: 0px -4px 0px -4px;
+}
+
+QSlider::handle:hover {
+	background: #5A5A5A;  /* Hover feedback */
+}
+
+QSlider::add-page:vertical, QSlider::sub-page:horizontal {
+	background: #3D7848;  /* Accent for filled part */
+}
+
+QSlider::sub-page:vertical, QSlider::add-page:horizontal {
+	background: #353535;  /* Unfilled part */
+}
+
+QLabel {
+	border: none;  /* Remove borders from labels for cleaner look */
+}
+
+QProgressBar {
+	text-align: center;
+	border: 1px solid #404040;
+	background: #252525;
+}
+
+QProgressBar::chunk {
+	width: 1px;
+	background-color: #3D7848;  /* Accent color */
+	border: none;
+}
+
+QMenu::separator {
+	background: #353535;
+}
+
+QPushButton {
+	background: #252525;  /* Slightly raised from bg */
+	/* border: 1px solid #404040; */
+	border: 1px solid #252525;
+	/* border: none */
+	border-radius: 4px;
+	/* padding: 4px; */
+}
+
+QPushButton:hover {
+	background: #353535;
+	border: 1px solid #606060;  /* Highlight border */
+}
+
+QPushButton:pressed {
+	background: #151515;
+	border: 1px solid #303030;
+}
+
+QPushButton:checked {
+	background: #3D7848;  /* Accent for toggled */
+}
+
+QChartView {
+	background: #151515;  /* Darker plot area for contrast with traces */
+}

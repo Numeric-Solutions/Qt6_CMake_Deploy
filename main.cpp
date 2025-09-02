@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
 
-  a.setWindowIcon(QIcon(":/icons/ns256.png"));
+  a.setWindowIcon(QIcon("ns256.png"));
 
   PlotWindow w;
   w.show();

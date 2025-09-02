@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Qt6 CMake Deploy
+Exec=Qt6_CMake_Deploy
+Icon=Qt6_CMake_Deploy
+Categories=Utility;
+Comment=Qt6 CMake Deploy Application
