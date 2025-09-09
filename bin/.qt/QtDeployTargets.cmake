@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_Qt6_CMake_Deploy_FILE /home/reflexion/Documents/Repositories/Qt6_CMake_Deploy/bin/Qt6_CMake_Deploy)
+set(__QT_DEPLOY_TARGET_Qt6_CMake_Deploy_TYPE EXECUTABLE)
